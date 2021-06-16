@@ -1,0 +1,79 @@
+=== idea使用 ===
+https://blog.csdn.net/ningjiebing/article/details/90598285 ----------------------------【开发工具----Idea】使用入门
+https://blog.csdn.net/qq_38963960/article/details/89552704 ----------------------------idea快捷键
+https://www.cnblogs.com/leeego-123/p/10429728.html ------------------------------------idea 开发中常用的36个快捷键
+
+=== Linux ===
+https://blog.csdn.net/humanking7/article/details/83868907#77__389 ---------------------[Linux]常用命令、组合命令以及输入输出重定向
+https://blog.csdn.net/weixin_42696130/article/details/83552211 ------------------------linux查看日志命令
+https://blog.csdn.net/mister_Wei/article/details/89244259 -----------------------------linux基本操作与docker基本操作总结
+https://www.cnblogs.com/shenh/p/9225351.html ------------------------------------------Docker基本命令汇总
+
+=== Git ===
+https://www.cnblogs.com/mufengforward/p/8982053.html ----------------------------------上传本地文件到github（码云）上（小乌龟方式，sourcetree方式）
+
+=== sql ===
+https://blog.csdn.net/justry_deng/article/details/81458470 ----------------------------MySQL索引的创建与使用
+https://blog.csdn.net/u010520146/article/details/81161762 -----------------------------数据库SQL调优的几种方式
+https://www.cnblogs.com/yysbolg/p/13655846.html ---------------------------------------Oracle 时间戳与日期的转换
+
+=== Java特性 ===
+https://www.cnblogs.com/zery/p/3438845.html -------------------------------------------正则表达式
+https://blog.csdn.net/zjpp2580369/article/details/83027547 ----------------------------回调（callback）
+https://www.jianshu.com/p/0bf8fe0f153b ------------------------------------------------JAVA8十大新特性详解（精编）
+https://blog.csdn.net/weixin_42382121/article/details/104695768 -----------------------JAVA8的JVM虚拟机，看这一篇就够了
+
+=== 面试 ===
+https://blog.csdn.net/csdnnews/article/details/103154693 ------------------------------8年经验面试官详解 Java 面试秘诀
+
+=== Java Spring ===
+https://blog.csdn.net/qq_19865749/article/details/70186889 ----------------------------Spring笔记——通过源码理解Spring 中事件发布
+https://blog.csdn.net/zangdaiyang1991/article/details/90788013 ------------------------Java Web框架篇之Spring
+
+=== MQ ===
+https://blog.csdn.net/wangbing25307/article/details/80845641 --------------------------RabbitMQ的简单使用
+https://blog.csdn.net/u011414629/article/details/101166442?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-11.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-11.nonecase
+---------------------------------------------------------------------------------------MQ消息丢失和消息重复的解决方案和实战
+https://www.cnblogs.com/chenfangzhi/p/9710698.html ------------------------------------Java SpringBoot集成RabbitMq实战和总结
+https://blog.csdn.net/u012129558/article/details/85099861 -----------------------------使用@RabbitListener注解消费消息
+https://www.jianshu.com/p/04a1d36f52ba ------------------------------------------------RabbitMQ消费者的几个参数
+https://blog.csdn.net/qq_33638256/article/details/87774718 ----------------------------Spring Boot Rabbitmq 实现消费者并发监听
+https://www.cnblogs.com/leslies2/p/11238859.html --------------------------------------深入剖析 RabbitMQ —— Spring 框架下实现 AMQP 高级消息队列协议
+https://blog.csdn.net/zhangli_wei0403/article/details/84940636?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare
+---------------------------------------------------------------------------------------spring-boot+mysql+Redis+rabbitMQ队列+多线程模拟并发-实现请求并发下的商城秒杀系统
+https://blog.csdn.net/i_vic/article/details/72742277 ----------------------------------spring boot 自学笔记(五) Rabbitmq集成,延时消息队列实现
+
+
+=== 文件上传下载导入导出 ===
+https://blog.csdn.net/qq_39304441/article/details/99670966 ----------------------------Java中的File类和IO流
+https://blog.csdn.net/liberty12345678/article/details/82109553 ------------------------POI-实现导入导出
+https://www.cnblogs.com/GH0522/p/9047472.html -----------------------------------------POI实现Excel导入导出
+https://www.cnblogs.com/maohuidong/p/12524787.html ------------------------------------Java下载文件的几种方式
+https://www.cnblogs.com/zyt-bg/p/10407554.html ----------------------------------------java 实现文件上传下载以及查看
+https://www.cnblogs.com/fengdi/articles/13161939.html ---------------------------------java多文件打包下载
+https://www.cnblogs.com/id-tangrenhui/p/11760582.html ---------------------------------java文件下载（单文件下载，多文件打包下载）
+https://blog.csdn.net/wyl15235141424/article/details/90691296 -------------------------java 打包下载
+https://blog.csdn.net/handsomeBird/article/details/86597007 ---------------------------【JAVA】关于项目中的异步文件上传问题
+
+
+=== 线程 ===
+https://blog.csdn.net/weixin_41891854/article/details/81265772 ------------------------Java创建线程的四种方式
+https://blog.51cto.com/u_14975073/2591029 ---------------------------------------------100道Java并发和多线程基础面试题大集合
+
+=== 认证秘钥 ===
+https://www.cnblogs.com/aigeileshei/p/8855873.html ------------------------------------使用keytool生成公钥、私钥、证书并且读取出来，使用私钥签名jar并验证
+https://blog.csdn.net/dotuian/article/details/51722300 --------------------------------关于keystore的简单介绍
+https://blog.csdn.net/tangside163/article/details/50953386?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-29&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-29
+---------------------------------------------------------------------------------------用keytool 生成证书配置tomcat ssl双向认证
+https://blog.csdn.net/shfqbluestone/article/details/21242323?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1
+---------------------------------------------------------------------------------------keytool生成keystore、truststore、证书以及SSL单向认证在服务端tomcat和客户端的配置
+https://blog.csdn.net/superviser3000/article/details/80812263 -------------------------干货 | 图解 https 单向认证和双向认证
+https://blog.csdn.net/u012545728/article/details/80548168 -----------------------------Https通信原理
+http://www.blogjava.net/icewee/archive/2012/06/04/379947.html -------------------------Java Tomcat SSL 服务端/客户端双向认证（一）
+https://blog.csdn.net/LI_AINY/article/details/94458097 --------------------------------X509TrustManager信任SSL证书
+https://blog.csdn.net/zbuger/article/details/51695582 ---------------------------------java实现ssl单/双向认证通信[推荐]
+https://blog.csdn.net/dtlscsl/article/details/50118225 --------------------------------https 双向认证开发实践
+https://blog.csdn.net/boom_man/article/details/102625460 ------------------------------JVM证书导入: 通过java代码导入证书
+https://blog.csdn.net/justry_deng/article/details/81042379 ----------------------------HttpClient详细使用示例
+https://blog.csdn.net/xiaoming100001/article/details/81109617?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control
+---------------------------------------------------------------------------------------HTTP和HTTPS协议，看一篇就够了
