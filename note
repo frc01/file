@@ -1,0 +1,133 @@
+参考时间戳：
+new Date(1570049166007) => Thu Oct 03 2019 04:46:06 GMT+0800 (中国标准时间)
+new Date(1595349166007) => Wed Jul 22 2020 00:32:46 GMT+0800 (中国标准时间)
+
+MySQL数据库导出/连接：
+--databases 指定数据库
+--tables 指定数据表
+--no-data -d 只导出结构
+--no-create-info 只导出数据
+--no-create-db 不生成创建数据库语句
+--skip-add-drop-table 不生成DROP数据表语句
+--skip-triggers 忽略触发器
+示例：
+mysqldump -h 10.243.222.67 -P 32019 -u csistc -p --databases db_cd_smartndp_all --no-create-info > D:/smartNDP_db_cd_smartndp_all.sql
+mysql -h 10.243.222.67 -P 32019 -u csistc -p
+
+GaussDB时间戳转日期字符串：
+from_unixtime(create_time/1000, “YYYY-MM-DD HH24:MI:SS“)，第二个参数格式化字符串可不传
+日期字符串转时间戳：
+UNIX_TIMESTAMP(“2019-08-28”)*1000
+
+导出密钥/证书：
+openssl pkcs12 -in clientKeystore.p12 -out clientKeystore.key.pem -nocerts -nodes
+
+openssl pkcs12 -in clientKeystore.p12 -out clientKeystore.crt.pem -clcerts -nokeys
+keytool -export -alias huawei -keystore clientKeystore.jks -rfc -file server.cer
+
+查看密钥/证书：
+openssl pkcs12 -nodes -in clientCert.p12
+keytool -v -list -keystore clientKeystore.jks
+
+打印p12证书详细信息：
+openssl pkcs12 -in serverCert.p12 -out serverCert.crt -clcerts -nokeys -password pass:71b61393e5%HW && openssl x509 -in serverCert.crt -text -noout && rm serverCert.crt -f
+
+代码本地打包出包：
+打包一般用233归档服务器的 /data/iam/itsc/common/ 目录的Dockerfile文件即可
+注意docker build命令后边有个点，表示使用当前目录下的Dockerfile文件打包
+示例（不压缩）：
+docker build --tag sz-docker-public.szxy1.artifactory.cd-cloud-artifact.tools.huawei.com/smart5g/smart-ndp:202010131624-11 .
+docker save -o smart-ndp:202010131624-11.tar sz-docker-public.szxy1.artifactory.cd-cloud-artifact.tools.huawei.com/smart5g/smart-ndp:202010131624-11
+示例（压缩）：
+docker build --tag sz-docker-public.szxy1.artifactory.cd-cloud-artifact.tools.huawei.com/smart5g/sdmbb-file:202011041513 . && docker save sz-docker-public.szxy1.artifactory.cd-cloud-artifact.tools.huawei.com/smart5g/sdmbb-file:202011041513 |gzip> sdmbb-file:202011041513.tar
+使用docker push：
+test环境： docker build -t 10.243.248.158:20202/gde/sd-isupnfv:202011190945 . && docker push 10.243.248.158:20202/gde/sd-isupnfv:202011190945
+dev环境： docker build -t 10.244.163.20:20202/gde/sd-isupnfv:202011190945 . && docker push 10.244.163.20:20202/gde/sd-isupnfv:202011190945
+
+通用服务器密码： hG@r#268AnhD@jxArH
+通用数据库密码： LRATcq,yr9iDg%3h
+
+高斯数据库节点登录：
+su – gtsgsdba –s /bin/bash
+zsql / as sysdba
+
+高斯数据库用户相关操作：
+查看所有用户：
+select * from all_users order by username;
+创建：
+CREATE USER sdmbb_file IDENTIFIED BY 'LRATcq,yr9iDg%3h';
+GRANT CREATE SESSION TO sdmbb_file;
+GRANT CREATE TABLE TO sdmbb_file;
+GRANT CREATE VIEW TO sdmbb_file;
+GRANT CREATE TRIGGER TO sdmbb_file;
+ALTER SYSTEM RELOAD HBA CONFIG;
+解锁：
+ALTER USER user_test ACCOUNT UNLOCK;
+修改密码：
+ALTER USER MBB_PORTAL_HOME IDENTIFIED BY 'LRATcq,yr9iDg%3h' REPLACE 'HUAwei#123';
+删除：
+DROP USER IF EXISTS user_name CASCADE;
+CASCADE表示连同数据库表对象一起删除，存在未删除数据库对象且未指定该选项时，删除用户会报错。
+
+跳板机文件上传：
+FTP服务器地址：osaftp.his.huawei.com
+账号密码是w3账号密码
+
+goproxy tcp转发：
+./proxy tcp -p ":8888" -T tcp -P "10.243.186.127:30011"
+
+javascript日期字符串转时间戳：
+new Date("2014-07-10 10:21:12").getTime()
+
+linux硬盘分区格式化挂载写入fstab：
+查看硬盘信息：fdisk –l
+查看挂载信息：df –h
+分区：
+fdisk /dev/vdb
+m查看帮助
+n创建新分区，分区类型选主分区就行，一个硬盘最多有四个主分区，分区号和初始扇区默认就行，最后的扇区填比如+50G指定大小，不填的话默认会用完所有剩余的硬盘空间
+w提交分区任务，一定要执行
+格式化：mkfs.ext4 /dev/vdb1
+挂载：mount /dev/vdb1 /test
+再次查看挂载信息：df –h
+写入fstab：
+添加 /dev/vdb1 /test ext4 defaults 0 2到/etc/fstab文件末尾
+最后的0表示硬盘无需备份，2表示开机后会检验硬盘扇区完整性（但优先级靠后，晚于该值为1的硬盘）
+参考博客：https://www.cnblogs.com/jyzhao/p/4778657.html
+
+apig刷路由常用登录账号密码：
+admin Huawei@123或ChangeMe@123（密码会过期，两个密码轮换）
+isup刷路由：
+java -jar apig-tools.jar --apig.baseUrl=https://10.243.250.187:8643
+http://10.244.162.92:8080/swagger-ui.html#/
+
+GaussDB查看是否主节点：
+su - gtsgsdba -s /bin/bash
+sh bin/info.sh
+若OPEN_STATUS显示READ ONLY为备份节点，READ WRITE为主节点
+
+lb管理命令：
+进入lb容器：
+docker exec -it `docker ps |grep lb-server|awk '{print $1}'` bash
+编辑nginx配置： 
+vim /usr/local/NSP/etc/nginx/vhosts/proxy_balancer.conf
+重新加载nginx：
+/usr/local/NSP/sbin/nginx -s reload
+
+编辑apig网关认证插件：
+vim /opt/apigateway/resty/etc/router/plugins/authentication_sd/access.lua
+查看日志文件：
+tailf /opt/apigateway/log/apigateway/shubao/runtime/error.log|grep -v redis
+
+全局搜索文件内容：
+find /opt/apigateway -type f -name "*.conf" | xargs grep "Cache-Control"
+
+显示curl请求响应时间：
+curl -k -w "time_connect %{time_connect}\ntime_starttransfer %{time_starttransfer}\ntime_total %{time_total}\n" https://10.244.145.209:443
+
+修改框架用户角色：
+update T_WORKSPACE_MEMBER SET role_code = 'smart.user' WHERE ACCOUNT = ' tWX5320811' AND project_id = '-1';
+update T_WORKSPACE_MEMBER SET role_code = 'smart.user' WHERE ACCOUNT = 'c00585732' AND project_id = '-1';
+
+apig修改管理员密码：
+curl -k -H "Accept: application/json" -H "Content-type: application/json;charset=utf8" -H "X-Auth-Token: ${token}" -X PUT -d '{"old_password": "ChangeMe@123","new_password": "Huawei@123"}' https://10.243.250.187:8643/v1/apigw/extension/users/admin/password
