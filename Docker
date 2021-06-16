@@ -1,0 +1,15 @@
+加载titan提供的基础镜像文件: docker load -i [文件]
+根据Dockerfile构建镜像: docker build -t [服务名:版本号] .
+查看所有镜像: docker images
+删除镜像: docker image rm [镜像:版本]
+保存镜像: docker save [镜像:版本] |gzip> [保存位置]
+从容器拷东西: docker cp [容器id]:[文件位置] [外部保存位置]
+搜索服务: docker ps |grep xxx
+进入容器: docker exec -it -u 0 [容器id] bash
+
+Dockerfile 关键字作用:
+FROM smartdesigner-baseimg:latest #FROM 指定基础镜像
+ADD LicenseService.war /usr/local/tomcat/webapps/LicenseService.war #ADD 添加外部文件到容器内部，压缩格式会自动解压
+RUN useradd -g 20010 -u 20035 -M -s /sbin/nologin licenseservice \ #RUN 跑shell命令
+    && chown licenseservice:20010 /usr/local/tomcat -R
+USER licenseservice # USER 指定容器启动后的身份， 如果基础镜像指定过身份 新的Dockerfile命令会使用基础镜像的身份
