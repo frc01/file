@@ -1,0 +1,33 @@
+// post调用（body）
+String url = "https://fadadadadsd:8080/abc";
+
+// url归一化   
+url = ormalizer.normalize(url, Normalizer.Form.NFKC);
+
+// 拼接url例如：sydgaj/sdsf/{projectId}/dshakd
+private URI encodeUri(String url, Object... pathParams) {
+    return UriComponentsBuilder.fromUriString(url).buildAndExpand(pathParams).encode().toUri();
+}
+
+// 构造入参和请求头（json body）
+HttpEntity<PlatformMemberParam> requestEntity = new HttpEntity<>(normalizedParam, headers);
+
+// 构造入参和请求头（path）
+MultiValueMap<String, String> param = new LinkedMultiValueMap<>();
+param.add("metaPath", fileId);
+HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(param, header);
+
+// 构造入参和请求头（path带文件的）
+FileSystemResource fileSystemResource = new FileSystemResource(Objects.requireNonNull(file));
+MultiValueMap<String, Object> param = new LinkedMultiValueMap<>();
+param.add("file", fileSystemResource);
+
+// 限定返回值类型
+ParameterizedTypeReference<Result<?>> resultType = new ParameterizedTypeReference<Result<?>>() { };
+
+// 调用接口
+ResponseEntity<Result<?>> entity = smartRestTemplate.exchange(url, HttpMethod.POST, requestEntity, resultType);
+
+// MultipartFile转File
+File file = new File(getTempPath() + multipartFile.getOriginalFilename());
+multipartFile.transferTo(file);
